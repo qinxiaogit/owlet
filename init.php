@@ -7,6 +7,7 @@ class server{
 		$this->_http->start();
 	}
 	public function onRequest($request,$response){
+		print_r($request->post);
 		$response->write(json_encode($request->header));
     		$response->end("<h1>Hello owlet. #".rand(1000, 9999)."</h1>");
 	}
