@@ -22,7 +22,7 @@ class server{
 	*/
 	public function init(){
 		$this->_http->set([
-				'task_worker_num'=>200
+				'task_worker_num'=>2
 			]);
 	}
 
