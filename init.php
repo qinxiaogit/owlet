@@ -25,6 +25,11 @@ class server{
 				'task_worker_num'=>200
 			]);
 	}
+
+    /**
+     * @param $request
+     * @param $response
+     */
 	public function onRequest($request,$response){
 		$host = $request->header['host'];
         $host = $this->hanlde_host($host);
@@ -39,6 +44,11 @@ class server{
 		// $response->write(json_encode($request->header));
   //   	$response->end("<h1>Hello owlet. #".rand(1000, 9999)."</h1>");
 	}
+
+    /**
+     * @param $host
+     * @return string
+     */
 	public function hanlde_host($host){
 		$hostArray =  explode(':',$host);
 		return isset($hostArray[0])?$hostArray[0]:'';
