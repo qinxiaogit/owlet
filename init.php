@@ -29,9 +29,11 @@ class server{
 		$host = $request->header['host'];
 		$host = $this->hanlde_host($host);
 		if(DOMAIN!=$host){
+		    $response->write('error</br>');
 			$response->end($host);
 		}
-		$this->_http->task($this->getUri($request->header));
+		$this->_http->task($this->getUri($request->server));
+        $response->write('success</br>');
 		$response->end('200');
 		// $response->write(json_encode($request->header));
   //   	$response->end("<h1>Hello owlet. #".rand(1000, 9999)."</h1>");
