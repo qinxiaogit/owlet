@@ -27,14 +27,14 @@ class server{
 	}
 	public function onRequest($request,$response){
 		$host = $request->header['host'];
-		$host = $this->hanlde_host($host);
-		if(DOMAIN!=$host){
-		    $response->write('error</br>');
-			$response->end($host);
-		}
-		$this->_http->task($this->getUri($request->server));
+        $host = $this->hanlde_host($host);
+        if(DOMAIN!=$host){
+            $response->write('error</br>');
+            $response->end($host);
+        }
+        $this->_http->task($this->getUri($request->server));
         $response->write('success</br>');
-		$response->end('200');
+        $response->end('200');
 		// $response->write(json_encode($request->header));
   //   	$response->end("<h1>Hello owlet. #".rand(1000, 9999)."</h1>");
 	}
@@ -46,7 +46,7 @@ class server{
 	*
 	*/
 	public function getUri($header){
-		$requestUrl = isset($header['request-url'])?$header['request-url']:'';
+		$requestUrl = isset($header['request_uri'])?$header['request_uri']:'';
 		$regex = '/[a-zA-Z]+/i';
         if(preg_match($regex,$requestUrl,$match)){
         	return $match[0];
